@@ -9,5 +9,8 @@ class MainTest {
     void mainTest() {
         int l = Main.len("Hello");
         assertEquals(5, l);
+
+        FixtureClass fixtureClass = new FixtureClass();
+        fixtureClass.helloFixture();
     }
 }
