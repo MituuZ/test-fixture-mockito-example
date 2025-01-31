@@ -13,8 +13,29 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testFixturesImplementation 'org.mockito:mockito-core:5.15.2'
 }
 
 test {
     useJUnitPlatform()
+}
+
+/*
+https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+ */
+
+configurations {
+    mockitoAgent
+}
+
+dependencies {
+    mockitoAgent(libs.mockito) {
+        transitive = false
+    }
+}
+
+tasks {
+    test {
+        jvmArgs += "-javaagent:${configurations.mockitoAgent.asPath}"
+    }
 }
