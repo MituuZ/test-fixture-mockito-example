@@ -1,7 +1,7 @@
 package com.mituuz;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
+    public static int len(String input) {
+        return input.length();
     }
 }
